@@ -214,14 +214,20 @@ class _PrescriptionUploadState extends State<PrescriptionUpload> {
                 right: 80.w,
                 child: InkWell(
                   onTap: (){
-                    Upload().uploadPrescription(File(image!.path),patientName);
+                    setState(() {
+                      Upload().uploadPrescription(File(image!.path),patientName).whenComplete((){
+                        setState(() {
+                          
+                        });
+                      });
+                    });
                   },
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.pink,
                       borderRadius: BorderRadius.all(Radius.circular(100.sp)),
                     ),
-                    child: Row(
+                    child:(Upload.isLoading == false) ? Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Icon(
@@ -231,7 +237,7 @@ class _PrescriptionUploadState extends State<PrescriptionUpload> {
                         ),
                         MyText(text: "Upload", size: 60.sp, overflow: false, bold: true, color: Colors.white),
                       ],
-                    ),
+                    ) : const Center(child: CircularProgressIndicator(color: Colors.white,)),
                   ),
                 ),
               ),

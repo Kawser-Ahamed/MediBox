@@ -11,6 +11,9 @@ import 'package:medibox/providers/patients_profile.dart';
 import 'package:medibox/pages/nurse/screens/time_scheduling.dart';
 import 'package:medibox/providers/view_prescription.dart';
 
+// ignore: prefer_typing_uninitialized_variables
+var patientNameForNurse;
+
 class IndividualPateint extends StatefulWidget {
   final String email;
   const IndividualPateint({super.key, required this.email});
@@ -80,6 +83,32 @@ class _IndividualPateintState extends State<IndividualPateint> {
                   child: Column(
                     children: [
                       Container(
+                        height: 10.h,
+                        width:200.w,
+                        color:Colors.white,
+                        child: StreamBuilder(
+                          stream: FirebaseFirestore.instance.collection(widget.email).snapshots(), 
+                          builder: (context,AsyncSnapshot<QuerySnapshot> snapshot) {
+                            if(snapshot.hasData){
+                              List<dynamic> patientList = snapshot.data!.docs.map((doc) => doc.data()).toList();
+                              return ListView.builder(
+                                itemCount: snapshot.data!.docs.length,
+                                itemBuilder: (context, index) {
+                                  Map<dynamic,dynamic> patientMap = patientList[index] as Map<dynamic,dynamic>;
+                                  patientNameForNurse = patientMap['Patient Name'];
+                                  return Container(
+
+                                  );
+                                }
+                              );
+                            }
+                            else{
+                              return Container();
+                            }
+                          }      
+                        ),
+                      ),
+                      Container(
                         height: 500.h,
                         width: double.maxFinite.w,
                         color: Colors.white,
@@ -110,7 +139,7 @@ class _IndividualPateintState extends State<IndividualPateint> {
                           children: [
                            GestureDetector(
                             onTap: (){
-                              Get.to(ViewPrescription(email: widget.email,));
+                              Get.to(ViewPrescription(email: widget.email,patientName: patientNameForNurse));
                             },
                             child:  _customContainer("assets/images/prescription.jpg","View Prescription"),
                            ),

@@ -118,22 +118,22 @@ class _PatientSignUPState extends State<PatientSignUP> {
                         child: MyText(text: "Signup", size: 60.sp, overflow: false, bold: true, color: Colors.white),
                       ),
                     ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.facebook,
-                          size: 120.sp,
-                          color: Colors.blue,
-                        ),
-                        SizedBox(width: 30.w),
-                        Image(
-                          image: const AssetImage("assets/images/google.png"),
-                          height: 100.h,
-                          width: 100.w,
-                        ),
-                        SizedBox(width: 100.w),
-                      ],
-                    ), 
+                    // Row(
+                    //   children: [
+                    //     Icon(
+                    //       Icons.facebook,
+                    //       size: 120.sp,
+                    //       color: Colors.blue,
+                    //     ),
+                    //     SizedBox(width: 30.w),
+                    //     Image(
+                    //       image: const AssetImage("assets/images/google.png"),
+                    //       height: 100.h,
+                    //       width: 100.w,
+                    //     ),
+                    //     SizedBox(width: 100.w),
+                    //   ],
+                    // ), 
                   ],
                 ),
                 SizedBox(height: 100.h),

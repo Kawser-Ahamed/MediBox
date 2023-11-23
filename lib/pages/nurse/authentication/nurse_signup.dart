@@ -142,22 +142,22 @@ class _NurseSignupState extends State<NurseSignup> {
                         child:(NurseSignupService.isLoading) ? const Center(child: CircularProgressIndicator(color: Colors.white)) : MyText(text: "Registration", size: 60.sp, overflow: false, bold: true, color: Colors.white),
                       ),
                     ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.facebook,
-                          size: 120.sp,
-                          color: Colors.blue,
-                        ),
-                        SizedBox(width: 30.w),
-                        Image(
-                          image: const AssetImage("assets/images/google.png"),
-                          height: 120.h,
-                          width: 120.w,
-                        ),
-                        SizedBox(width: 30.w),
-                      ],
-                    ),
+                    // Row(
+                    //   children: [
+                    //     Icon(
+                    //       Icons.facebook,
+                    //       size: 120.sp,
+                    //       color: Colors.blue,
+                    //     ),
+                    //     SizedBox(width: 30.w),
+                    //     Image(
+                    //       image: const AssetImage("assets/images/google.png"),
+                    //       height: 120.h,
+                    //       width: 120.w,
+                    //     ),
+                    //     SizedBox(width: 30.w),
+                    //   ],
+                    // ),
                   ],
                 ),
               ],

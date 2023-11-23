@@ -134,14 +134,20 @@ class _EditPrescriptionState extends State<EditPrescription> {
                 right: 80.w,
                 child: InkWell(
                   onTap: (){
-                    UploadPrescriptionNurse().uploadPrescription(File(image!.path), widget.email, patientIdforNurse,patientName);
+                    setState(() {
+                      UploadPrescriptionNurse().uploadPrescription(File(image!.path), widget.email, patientIdforNurse,patientName).whenComplete((){
+                        setState(() {
+                          
+                        });
+                      });
+                    });
                   },
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.pink,
                       borderRadius: BorderRadius.all(Radius.circular(100.sp)),
                     ),
-                    child: Row(
+                    child: (UploadPrescriptionNurse.isLoading ==false) ? Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Icon(
@@ -151,7 +157,7 @@ class _EditPrescriptionState extends State<EditPrescription> {
                         ),
                         MyText(text: "Upload", size: 60.sp, overflow: false, bold: true, color: Colors.white),
                       ],
-                    ),
+                    ) : const Center(child: CircularProgressIndicator(color: Colors.white)),
                   ),
                 ),
               ),

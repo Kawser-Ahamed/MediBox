@@ -14,7 +14,7 @@ import 'package:medibox/providers/view_prescription.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // ignore: prefer_typing_uninitialized_variables
-var userId;
+var userId,patientName;
 
 class PatientHomePage extends StatefulWidget {
   const PatientHomePage({super.key});
@@ -89,6 +89,7 @@ class _PatientHomePageState extends State<PatientHomePage> {
                                 itemBuilder: (context, index) {
                                   Map<dynamic,dynamic> patientdataMap = patientData[index] as Map<dynamic,dynamic>;
                                   userId = patientdataMap['Patient Id'];
+                                  patientName = patientdataMap['Patient Name'];
                                   return (patientdataMap.containsKey('Gender')) ? Container(
                                     height: 100.h,
                                     width: double.maxFinite.w,
@@ -427,7 +428,7 @@ class _PatientHomePageState extends State<PatientHomePage> {
                       SizedBox(height: 50.h),
                       GestureDetector(
                         onTap: (){
-                          Get.to(ViewPrescription(email: patientEmail));
+                          Get.to(ViewPrescription(email: patientEmail,patientName: patientName));
                         },
                         child: Container(
                           height: 400.h,

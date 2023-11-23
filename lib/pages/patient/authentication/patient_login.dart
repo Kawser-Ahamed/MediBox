@@ -133,12 +133,12 @@ TextEditingController password = TextEditingController();
                   )
                 ),
                 SizedBox(height: 100.h),
-                TextButton(
-                  onPressed: (){
+                // TextButton(
+                //   onPressed: (){
 
-                  },
-                  child: MyText(text: "Fotgot Password?", size: 50.sp, overflow: false, bold: true, color: Colors.grey),
-                ),
+                //   },
+                //   child: MyText(text: "Fotgot Password?", size: 50.sp, overflow: false, bold: true, color: Colors.grey),
+                // ),
                 SizedBox(height: 20.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -166,22 +166,22 @@ TextEditingController password = TextEditingController();
                         child: (PatientLoginService.isLoading) ? const Center(child:CircularProgressIndicator(color: Colors.white)) : MyText(text: "Login Now", size: 60.sp, overflow: false, bold: true, color: Colors.white),
                       ),
                     ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.facebook,
-                          size: 120.sp,
-                          color: Colors.blue,
-                        ),
-                        SizedBox(width: 30.w),
-                        Image(
-                          image: const AssetImage("assets/images/google.png"),
-                          height: 100.h,
-                          width: 100.w,
-                        ),
-                        SizedBox(width: 100.w),
-                      ],
-                    ),
+                    // Row(
+                    //   children: [
+                    //     Icon(
+                    //       Icons.facebook,
+                    //       size: 120.sp,
+                    //       color: Colors.blue,
+                    //     ),
+                    //     SizedBox(width: 30.w),
+                    //     Image(
+                    //       image: const AssetImage("assets/images/google.png"),
+                    //       height: 100.h,
+                    //       width: 100.w,
+                    //     ),
+                    //     SizedBox(width: 100.w),
+                    //   ],
+                    // ),
                   ],
                 ),
                 SizedBox(height: 20.h),

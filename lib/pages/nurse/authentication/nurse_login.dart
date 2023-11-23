@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medibox/constant/app_color.dart';
-import 'package:medibox/constant/my_text.dart';
 import 'package:medibox/pages/nurse/authentication/nurse_signup.dart';
 import 'package:medibox/services/nurse/nurse_login_service.dart';
 import 'package:medibox/ui/text_field.dart';
@@ -83,24 +82,24 @@ class _NurseLoginState extends State<NurseLogin> {
                 SizedBox(height: 50.h),
                 customContainer("Password",password,Icons.password,true),
                 SizedBox(height: 50.h),
-                Row(
-                  children: [
-                    Text("Accept our",
-                      style: GoogleFonts.sanchez(
-                        fontSize: 50.sp,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text("  Terms and Condition",
-                      style: GoogleFonts.aBeeZee(
-                        fontSize: 50.sp,
-                        color: Colors.green,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
+                // Row(
+                //   children: [
+                //     Text("Accept our",
+                //       style: GoogleFonts.sanchez(
+                //         fontSize: 50.sp,
+                //         color: Colors.black,
+                //         fontWeight: FontWeight.bold,
+                //       ),
+                //     ),
+                //     Text("  Terms and Condition",
+                //       style: GoogleFonts.aBeeZee(
+                //         fontSize: 50.sp,
+                //         color: Colors.green,
+                //         fontWeight: FontWeight.bold,
+                //       ),
+                //     ),
+                //   ],
+                // ),
                 SizedBox(height: 100.h),
                 Container(
                   height: 150.h,
@@ -168,24 +167,24 @@ class _NurseLoginState extends State<NurseLogin> {
                   ),
                 ),
                 SizedBox(height: 100.h),
-                Row(
-                  children: [
-                    SizedBox(width: 150.w),
-                    MyText(text: "Follow us on", size: 60.sp, overflow: false, bold: true, color: Colors.white),
-                    SizedBox(width: 50.w),
-                    Icon(
-                      Icons.facebook,
-                      size: 100.sp,
-                      color: Colors.blue,
-                    ),
-                    SizedBox(width: 50.w),
-                    Image(
-                      image: const AssetImage('assets/images/google.png'),
-                      height: 100.h,
-                      width: 100.w,
-                    ),
-                  ],
-                )
+                // Row(
+                //   children: [
+                //     SizedBox(width: 150.w),
+                //     MyText(text: "Follow us on", size: 60.sp, overflow: false, bold: true, color: Colors.white),
+                //     SizedBox(width: 50.w),
+                //     Icon(
+                //       Icons.facebook,
+                //       size: 100.sp,
+                //       color: Colors.blue,
+                //     ),
+                //     SizedBox(width: 50.w),
+                //     Image(
+                //       image: const AssetImage('assets/images/google.png'),
+                //       height: 100.h,
+                //       width: 100.w,
+                //     ),
+                //   ],
+                // )
               ],
             ),
           ),

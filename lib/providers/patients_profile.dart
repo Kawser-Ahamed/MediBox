@@ -144,15 +144,29 @@ class _PatientProfileState extends State<PatientProfile> {
                                         onTap: () async{
 
                                         },
-                                        child: Container(
-                                          height: 150.h,
-                                          width: 150.w,
-                                          decoration: BoxDecoration(
-                                            color: const Color.fromARGB(255, 101, 227, 187),
-                                            borderRadius: BorderRadius.all(Radius.circular(20.sp)),
-                                          ),
-                                          child: const Center(
-                                            child: Icon(Icons.email,color: Colors.white),
+                                        child: InkWell(
+                                          onTap: () async{
+                                            launchUrl(
+                                              Uri(
+                                                scheme: 'mailto',
+                                                path: patientMap['Patient Email'],
+                                                queryParameters: {
+                                                  'subject' : 'Test',
+                                                  'body' : 'mymsg',
+                                                }
+                                              )
+                                            );
+                                          },
+                                          child: Container(
+                                            height: 150.h,
+                                            width: 150.w,
+                                            decoration: BoxDecoration(
+                                              color: const Color.fromARGB(255, 101, 227, 187),
+                                              borderRadius: BorderRadius.all(Radius.circular(20.sp)),
+                                            ),
+                                            child: const Center(
+                                              child: Icon(Icons.email,color: Colors.white),
+                                            ),
                                           ),
                                         ),
                                       ):Container(),

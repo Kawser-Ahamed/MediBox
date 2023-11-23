@@ -194,7 +194,7 @@ class _NurseHomePageState extends State<NurseHomePage> {
                                 )
                               ),
                               child: Center(
-                                child: Text("Your Patients",
+                                child: Text("My Patients",
                                 style: GoogleFonts.abel(
                                   fontSize: 60.sp,
                                 ),
