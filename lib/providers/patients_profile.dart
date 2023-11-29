@@ -5,7 +5,9 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medibox/constant/app_color.dart';
 import 'package:medibox/constant/my_text.dart';
+import 'package:medibox/pages/nurse/screens/nurse_homepage.dart';
 import 'package:medibox/services/nurse/patient_add_services.dart';
+import 'package:medibox/services/nurse/remove_patient.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PatientProfile extends StatefulWidget {
@@ -195,9 +197,31 @@ class _PatientProfileState extends State<PatientProfile> {
                                   SizedBox(height: 50.h),
                                   (patientMap['Nurse']=='true' && widget.state=="search") ? Container(
                                     margin: EdgeInsets.only(left: 140.w),
-                                    child: Text("Unable to add this patient",style: GoogleFonts.arima(fontSize: 60.sp,color: Colors.red)))
-                                  : (widget.state=="profile"||widget.state=="profile-nurse") ? Container(
-                                  ) : Container(
+                                    child: Text("Unable to add this patient",style: GoogleFonts.arima(fontSize: 60.sp,color: Colors.red))
+                                  )
+                                  : (widget.state =='profile-nurse') ? Center(child: InkWell(
+                                    onTap: (){
+                                      RemovePatient.removePatientInformation();
+                                      RemovePatient.removeNurseInformation();
+                                      Get.to(const NurseHomePage());
+                                    },
+                                    child: Container(
+                                          alignment: Alignment.center,
+                                          height: 120.h,
+                                          width: 580.w,
+                                          decoration: BoxDecoration(
+                                            color:Colors.red,
+                                            borderRadius: BorderRadius.all(Radius.circular(100.sp)),
+                                          ),
+                                          child: Text("Remove Patient",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 50.sp,
+                                          ),
+                                        ),
+                                      ),
+                                  ),
+                                  ) : (widget.state =='profile')?Container():Container(
                                     margin: EdgeInsets.only(left: 220.w),
                                     child: ElevatedButton(
                                       onPressed: (){

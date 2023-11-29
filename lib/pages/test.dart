@@ -1,84 +1,49 @@
-// import 'dart:math';
-
+// import 'package:awesome_notifications/awesome_notifications.dart';
 // import 'package:flutter/material.dart';
-// import 'package:encrypt/encrypt.dart' as encrypt;
+// import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-// class EncryptionDemo extends StatefulWidget {
+// class MyWidget extends StatefulWidget {
+//   const MyWidget({super.key});
+
 //   @override
-//   _EncryptionDemoState createState() => _EncryptionDemoState();
+//   State<MyWidget> createState() => _MyWidgetState();
 // }
 
-// class _EncryptionDemoState extends State<EncryptionDemo> {
-  
-
-//   String encryptedText = '';
-//   String decryptedText = '';
-
-//   TextEditingController textEditingController = TextEditingController();
-//     Random random = Random();
-//     String secretKey = '';
-
-//   void keyGenerator(){
-//     for(int i=1;i<=16;i++){
-//       int digit = random.nextInt(10);
-//       secretKey+=digit.toString();
-//     } 
-//   }
-//   void encryptText() {
-//     keyGenerator();
-//     final encrypt.Key key = encrypt.Key.fromUtf8(secretKey); // Replace with your own secret key
-//     final encrypt.IV iv = encrypt.IV.fromLength(16);
-//     final encrypter = encrypt.Encrypter(encrypt.AES(key, mode: encrypt.AESMode.cbc));
-//     final plainText = textEditingController.text;
-//     final encrypted = encrypter.encrypt(plainText, iv: iv);
-
-//     setState(() {
-//       encryptedText = encrypted.base64;
+// class _MyWidgetState extends State<MyWidget> {
+//   @override
+//   void initState() {
+//     AwesomeNotifications().isNotificationAllowed().then((isAllowed) => {
+//       if(!isAllowed){
+//         AwesomeNotifications().requestPermissionToSendNotifications(),
+//       }
 //     });
+//     super.initState();
 //   }
 
-//   void decryptText() {
-//     final encrypt.Key key = encrypt.Key.fromUtf8(secretKey);
-//     final encrypt.IV iv = encrypt.IV.fromLength(16);
-//     final encrypter = encrypt.Encrypter(encrypt.AES(key, mode: encrypt.AESMode.cbc));
-//     final encrypted = encrypt.Encrypted.fromBase64(encryptedText);
-//     final decrypted = encrypter.decrypt(encrypted, iv: iv);
-
-//     setState(() {
-//       decryptedText = decrypted;
-//     });
+//   void sendNotification(){
+//     AwesomeNotifications().createNotification(
+//       content: NotificationContent(
+//         id: 10, 
+//         channelKey: 'MediBox121',
+//         title: 'Hello',
+//         body: 'Its go to then',
+//       ),
+//     );
 //   }
 
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Text Encryption and Decryption'),
-//       ),
-//       body: Padding(
-//         padding: EdgeInsets.all(16.0),
-//         child: Column(
-//           crossAxisAlignment: CrossAxisAlignment.stretch,
-//           children: <Widget>[
-//             TextField(
-//               controller: textEditingController,
-//               decoration: InputDecoration(labelText: 'Enter Text to Encrypt'),
-//             ),
-//             SizedBox(height: 16.0),
-//             ElevatedButton(
-//               onPressed: encryptText,
-//               child: Text('Encrypt Text'),
-//             ),
-//             SizedBox(height: 16.0),
-//             Text('Encrypted Text: $encryptedText'),
-//             SizedBox(height: 16.0),
-//             ElevatedButton(
-//               onPressed: decryptText,
-//               child: Text('Decrypt Text'),
-//             ),
-//             SizedBox(height: 16.0),
-//             Text('Decrypted Text: $decryptedText'),
-//           ],
+//       body: Container(
+//         height: double.maxFinite.h,
+//         width: double.maxFinite.w,
+//         child: Center(
+//           child: ElevatedButton(
+//             onPressed: (){
+//               sendNotification();
+//             }, 
+//             child: Text('Send'),
+//           ),
 //         ),
 //       ),
 //     );

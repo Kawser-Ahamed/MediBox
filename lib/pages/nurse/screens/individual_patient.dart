@@ -13,6 +13,10 @@ import 'package:medibox/providers/view_prescription.dart';
 
 // ignore: prefer_typing_uninitialized_variables
 var patientNameForNurse;
+// ignore: prefer_typing_uninitialized_variables
+var patientEmailForNurse;
+// ignore: prefer_typing_uninitialized_variables
+var patientIdForNurse;
 
 class IndividualPateint extends StatefulWidget {
   final String email;
@@ -96,6 +100,8 @@ class _IndividualPateintState extends State<IndividualPateint> {
                                 itemBuilder: (context, index) {
                                   Map<dynamic,dynamic> patientMap = patientList[index] as Map<dynamic,dynamic>;
                                   patientNameForNurse = patientMap['Patient Name'];
+                                  patientEmailForNurse = patientMap['Patient Email'];
+                                  patientIdForNurse = patientMap['Patient Id'];
                                   return Container(
 
                                   );

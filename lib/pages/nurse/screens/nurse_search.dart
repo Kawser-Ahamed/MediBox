@@ -216,7 +216,7 @@ class _NurseSearchState extends State<NurseSearch> {
                                       ),
                                       GestureDetector(
                                         onTap: (){
-                                          Get.to(PatientProfile(email: email,state: "Search",));
+                                          Get.to(PatientProfile(email: email,state: "search"));
                                         },
                                         child: Container(
                                           height: 100.h,
