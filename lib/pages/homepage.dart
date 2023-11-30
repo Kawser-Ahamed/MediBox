@@ -54,10 +54,6 @@ class _HomepageState extends State<Homepage> {
           width: double.maxFinite,
           decoration: const BoxDecoration(
             color: Colors.white,
-            image: DecorationImage(
-              image: AssetImage('assets/images/homepage.jpg'),
-              fit: BoxFit.fill,
-            ),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

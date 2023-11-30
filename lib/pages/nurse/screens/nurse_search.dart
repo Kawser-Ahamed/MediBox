@@ -28,7 +28,7 @@ class _NurseSearchState extends State<NurseSearch> {
           width: double.maxFinite.w,
           color: Colors.white,
           child: Container(
-            margin: EdgeInsets.only(left: 50.w,top: 50.h,right: 50.h),
+            margin: EdgeInsets.only(left: 40.w,top: 50.h,right: 40.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -112,7 +112,7 @@ class _NurseSearchState extends State<NurseSearch> {
                           return Container(
                             height: 300.h,
                             width: double.maxFinite.w,
-                            margin: EdgeInsets.only(bottom: 50.h),
+                            margin: EdgeInsets.only(bottom: 30.h,left: 10.w,right: 10.w,top: 30.h),
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.all(Radius.circular(30.sp)),
@@ -185,7 +185,7 @@ class _NurseSearchState extends State<NurseSearch> {
                           return Container(
                             height: 300.h,
                             width: double.maxFinite.w,
-                            margin: EdgeInsets.only(bottom: 50.h),
+                            margin: EdgeInsets.only(bottom: 30.h,left: 10.w,right: 10.w,top: 30.h),
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.all(Radius.circular(30.sp)),

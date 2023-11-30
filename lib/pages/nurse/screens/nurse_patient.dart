@@ -24,10 +24,10 @@ class _NursePatientState extends State<NursePatient> {
           width: double.maxFinite.w,
           decoration: const BoxDecoration(
             color: Colors.white,
-            image: DecorationImage(
-              image: AssetImage('assets/images/homepage.jpg'),
-              fit: BoxFit.fill,
-            ),
+            // image: DecorationImage(
+            //   image: AssetImage('assets/images/homepage.jpg'),
+            //   fit: BoxFit.fill,
+            // ),
           ),
           child: Container(
             margin: EdgeInsets.only(left: 50.w,top: 50.h,right: 50.h),

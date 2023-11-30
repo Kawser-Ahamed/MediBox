@@ -188,6 +188,7 @@ class _IndividualPateintState extends State<IndividualPateint> {
                           ],
                         ),
                       ),
+                      SizedBox(height: 50.h),
                       Container(
                         height: 0.h,
                         width: double.maxFinite.w,
