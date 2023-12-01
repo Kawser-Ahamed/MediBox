@@ -66,6 +66,11 @@ class PatientSignupService{
           'Ward No' : ward,
           'Nurse' : 'false',
         });
+        FirebaseDatabase.instance.ref('Patient-Time-Scheduling').child(miliSecond.toString()).update({
+          'buzzer' : "on",
+          "led" : "on",
+        });
+        
       } on FirebaseAuthException catch (e){
         if(e.code == 'weak-password'){
           Get.snackbar('MediBox', 'Weak Password',

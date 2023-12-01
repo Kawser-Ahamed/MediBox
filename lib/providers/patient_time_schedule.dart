@@ -89,7 +89,7 @@ class _PatientTimeScheduleState extends State<PatientTimeSchedule> {
                             List<dynamic> patientData = patinetMap.values.toList();
                             return Container(
                               margin: EdgeInsets.only(bottom: 10.h),
-                              child: Card(
+                              child: (patinetMap.keys.elementAt(index)=='buzzer' || patinetMap.keys.elementAt(index)=='led') ? null : Card(
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(vertical: 20.sp),
                                   child: ListTile(

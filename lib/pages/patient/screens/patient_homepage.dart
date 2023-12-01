@@ -116,7 +116,7 @@ class _PatientHomePageState extends State<PatientHomePage> {
                           child: StreamBuilder(
                             stream: FirebaseDatabase.instance.ref('Patient-Time-Scheduling').child(userId.toString()).onValue, 
                             builder: (context, AsyncSnapshot<DatabaseEvent> snapshot) {
-                            if(snapshot.connectionState != ConnectionState.waiting){
+                            if(snapshot.hasData){
                               Map<dynamic,dynamic> patientData = snapshot.data!.snapshot.value as dynamic;
                               if(patientData.containsKey('buzzer')){
                                 buzzer = patientData['buzzer'];
@@ -184,7 +184,7 @@ class _PatientHomePageState extends State<PatientHomePage> {
                                           child: StreamBuilder(
                                             stream: FirebaseFirestore.instance.collection(patientEmail).snapshots(), 
                                             builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                                              if(snapshot.hasData){
+                                              if(snapshot.connectionState != ConnectionState.waiting){
                                                 List<dynamic> patientData = snapshot.data!.docs.map((doc) => doc.data()).toList();
                                                 return ListView.builder(
                                                   itemCount: patientData.length,
@@ -514,7 +514,7 @@ class _PatientHomePageState extends State<PatientHomePage> {
                                                             topRight: Radius.circular(50.sp),
                                                           )
                                                         ),
-                                                        child: Center(child: Image.asset('assets/images/setting.jpg')),
+                                                        child: Center(child: Image.asset('assets/images/bell-icon.png')),
                                                       ),
                                                       Container(
                                                         height: 180.h,
@@ -655,7 +655,7 @@ class _PatientHomePageState extends State<PatientHomePage> {
                                   ),
                                  );
                                 },
-                              );
+                              );     
                             }
                             else{
                               return const Center(child: CircularProgressIndicator());
