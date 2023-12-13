@@ -69,6 +69,13 @@ class PatientSignupService{
         FirebaseDatabase.instance.ref('Patient-Time-Scheduling').child(miliSecond.toString()).update({
           'buzzer' : "on",
           "led" : "on",
+          "Morning Before" : "0:00 PM",
+          "Morning After" : "0:00 PM",
+          "Afternoon Before" : "0:00 PM",
+          "Afternoon After" : "0:00 PM",
+          "Night Before" : "0:00 PM",
+          "Night After" : "0:00 PM",
+
         });
         
       } on FirebaseAuthException catch (e){

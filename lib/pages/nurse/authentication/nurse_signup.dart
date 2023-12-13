@@ -21,6 +21,7 @@ class _NurseSignupState extends State<NurseSignup> {
  TextEditingController confirmPassword = TextEditingController();
  TextEditingController phone = TextEditingController();
  TextEditingController hospital = TextEditingController();
+ TextEditingController nurseName = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -107,6 +108,8 @@ class _NurseSignupState extends State<NurseSignup> {
                         SizedBox(height: 30.h),
                         customContainer("Confirm Password", confirmPassword, Icons.password, true),
                         SizedBox(height: 30.h),
+                        customContainer("Nurse Name", nurseName, Icons.person, false),
+                        SizedBox(height: 30.h),
                         customContainer("Mobile Number", phone, Icons.phone, false),
                         SizedBox(height: 30.h),
                         customContainer("Hospital Name", hospital, Icons.local_hospital, false),
@@ -122,7 +125,7 @@ class _NurseSignupState extends State<NurseSignup> {
                     ElevatedButton(
                       onPressed: (){
                         setState(() {
-                          NurseSignupService.nurseSignUp(email.text, password.text, confirmPassword.text, hospital.text, phone.text).whenComplete((){
+                          NurseSignupService.nurseSignUp(email.text, password.text, confirmPassword.text, hospital.text, phone.text,nurseName.text).whenComplete((){
                             setState(() {
                               
                             });

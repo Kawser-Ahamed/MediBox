@@ -8,7 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class NurseSignupService{
   static bool isLoading = false;
-  static Future<void> nurseSignUp(String email,String password,String confirmPassword,String name,String phone) async{
+  static Future<void> nurseSignUp(String email,String password,String confirmPassword,String name,String phone,String nurseName) async{
     if(email.isEmpty || password.isEmpty || confirmPassword.isEmpty || name.isEmpty || phone.isEmpty){
       Get.snackbar('MediBox', 'Please fill all the information', 
         backgroundColor: AppColor.mainColor,
@@ -34,6 +34,7 @@ class NurseSignupService{
         userCredential.user!.sendEmailVerification();
         final firestore = FirebaseFirestore.instance.collection(email);
         firestore.doc(email).set({
+          'Nurse Name' : nurseName,
           'Hospital Name' : name,
           'Mobile Number' : phone,   
         }).then((value) async{

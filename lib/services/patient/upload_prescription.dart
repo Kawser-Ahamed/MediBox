@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:encrypt/encrypt.dart' as encrypt;
-import 'package:firebase_core/firebase_core.dart';
+//import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,12 +16,12 @@ class Upload{
       DateTime currentTime = DateTime.now();
       int miliSecond = currentTime.microsecondsSinceEpoch;
       String secretKey = MySecretKey.secretKey;
-      final encrypt.Key key = encrypt.Key.fromUtf8(secretKey); // Replace with your own secret key
+      final encrypt.Key key = encrypt.Key.fromUtf8(secretKey); 
       final encrypt.IV iv = encrypt.IV.fromLength(16);
       final encrypter = encrypt.Encrypter(encrypt.AES(key, mode: encrypt.AESMode.cbc));
       final encrypted = encrypter.encrypt(patientName, iv: iv);
       final encryptedName = encrypted.base64;
-      Firebase.initializeApp();
+      debugPrint('Name: ${encryptedName.toString()}');
       final storageRef = FirebaseStorage.instance.ref(encryptedName);
       final imageRef = storageRef.child('/$miliSecond.png');
       await imageRef.putFile(file).then((value){

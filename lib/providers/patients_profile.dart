@@ -99,7 +99,7 @@ class _PatientProfileState extends State<PatientProfile> {
                                   Row(
                                     children: [
                                       Container(
-                                        width: 600.w,
+                                        width: 700.w,
                                         color: Colors.transparent,
                                         child: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -111,36 +111,36 @@ class _PatientProfileState extends State<PatientProfile> {
                                         ),
                                       ),
                                       SizedBox(width: 50.w),
-                                      (widget.state=="profile-nurse")?InkWell(
-                                        onTap: () async{
-                                           try{
-                                              if((patientMap.containsKey('Mobile Number'))){
-                                                final Uri callUrl = Uri(
-                                                  scheme: 'tel',
-                                                  path: patientMap['Mobile Number'],
-                                                );
-                                              if(await canLaunchUrl(callUrl)){
-                                                await launchUrl(callUrl);
-                                              }
-                                            } 
-                                           }
-                                           catch(e){
-                                            // ignore: avoid_print
-                                            print(e);
-                                           }
-                                        },
-                                        child: Container(
-                                          height: 150.h,
-                                          width: 150.w,
-                                          decoration: BoxDecoration(
-                                            color: const Color.fromARGB(255, 247, 181, 82),
-                                            borderRadius: BorderRadius.all(Radius.circular(20.sp)),
-                                          ),
-                                          child: const Center(
-                                            child: Icon(Icons.phone,color: Colors.white),
-                                          ),
-                                        ),
-                                      ):Container(),
+                                      // (widget.state=="profile-nurse")?InkWell(
+                                      //   onTap: () async{
+                                      //      try{
+                                      //         if((patientMap.containsKey('Mobile Number'))){
+                                      //           final Uri callUrl = Uri(
+                                      //             scheme: 'tel',
+                                      //             path: patientMap['Mobile Number'],
+                                      //           );
+                                      //         if(await canLaunchUrl(callUrl)){
+                                      //           await launchUrl(callUrl);
+                                      //         }
+                                      //       } 
+                                      //      }
+                                      //      catch(e){
+                                      //       // ignore: avoid_print
+                                      //       print(e);
+                                      //      }
+                                      //   },
+                                      //   child: Container(
+                                      //     height: 150.h,
+                                      //     width: 150.w,
+                                      //     decoration: BoxDecoration(
+                                      //       color: const Color.fromARGB(255, 247, 181, 82),
+                                      //       borderRadius: BorderRadius.all(Radius.circular(20.sp)),
+                                      //     ),
+                                      //     child: const Center(
+                                      //       child: Icon(Icons.phone,color: Colors.white),
+                                      //     ),
+                                      //   ),
+                                      // ):Container(),
                                       SizedBox(width: 20.w),
                                       (widget.state=="profile-nurse")?InkWell(
                                         onTap: () async{
@@ -152,10 +152,6 @@ class _PatientProfileState extends State<PatientProfile> {
                                               Uri(
                                                 scheme: 'mailto',
                                                 path: patientMap['Patient Email'],
-                                                queryParameters: {
-                                                  'subject' : 'Test',
-                                                  'body' : 'mymsg',
-                                                }
                                               )
                                             );
                                           },

@@ -35,8 +35,8 @@ class TimeScheduleProvider{
       context: context, 
       builder: (context) {
         return AlertDialog(
-          title: MyText(text: 'Time Scheduling', size: 60.sp, overflow: false, bold: true, color: Colors.black),
-          content: MyText(text: 'Are tou sure, you want to set time ${currentTime.format(context)} for $firebaseKey', size: 50.sp, overflow: false, bold: false, color: Colors.black),
+          title: MyText(text: 'Time Sheduling', size: 60.sp, overflow: false, bold: true, color: Colors.black),
+          content: MyText(text: 'Are you sure, you want to set time ${currentTime.format(context)} for $firebaseKey', size: 50.sp, overflow: false, bold: false, color: Colors.black),
           actions: [
             TextButton(
               onPressed: (){
